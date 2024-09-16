@@ -1,0 +1,141 @@
+.nav-bar {
+    background-color: black;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    min-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+
+        img {
+            display: block;
+            margin: 0;
+            width: auto;
+            height: 80px;
+        }
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 auto;
+
+        a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            color: #ffffff;
+            margin: 0 20px;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.5s ease;
+
+            &:hover {
+                color: #000000;
+            }
+
+            &.home-link::after,
+            &.about-link::after,
+            &.contact-link::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 16px;
+                margin-top: 5px;
+                color: #ffffff;
+                opacity: 0;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            &.home-link:hover::after {
+                content: 'HOME';
+                opacity: 1;
+                transform: translateX(-50%) translateY(-5px);
+            }
+
+            &.about-link:hover::after {
+                content: 'ABOUT';
+                opacity: 1;
+                transform: translateX(-50%) translateY(-5px);
+            }
+
+            &.contact-link:hover::after {
+                content: 'CONTACT';
+                opacity: 1;
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        i {
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: #ffffff;
+
+                svg {
+                    opacity: 0;
+                }
+
+                &:after {
+                    opacity: 1;
+                }
+            }
+
+            &:after {
+                content: '';
+                font-size: 9px;
+                letter-spacing: 2px;
+                position: absolute;
+                bottom: 0;
+                display: block;
+                width: 100%;
+                text-align: center;
+                opacity: 0;
+                transform: all 0.3s ease-out;
+            }
+        }
+    }
+
+    ul {
+        position: absolute;
+        right: 20px;
+
+        li {
+            a {
+                font-size: 28px;
+                color: #ffffff;
+                margin: 0 20px;
+                text-decoration: none;
+                position: relative;
+                transition: color 0.5s ease;
+
+                &:hover svg{
+                    color: #555555;
+                }
+                
+                &:hover svg {
+                    &[data-icon='linkedin'] {
+                        color: #0077b5;
+                    }
+                    &[data-icon='github'] {
+                        color: #555555;
+                    }
+                    &[data-icon='youtube'] {
+                        color: #ff0000; 
+                    }
+                }
+            }
+        }
+    }
+}

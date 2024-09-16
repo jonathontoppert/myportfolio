@@ -1,0 +1,97 @@
+.projects-section {
+    padding: 60px 0;
+    text-align: center;
+    z-index: 999; /* Add high z-index to make sure it's above everything */
+
+    h2 {
+        background-color: rgb(0, 0, 0);
+        font-size: 40px;
+        margin-bottom: 50px;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 2px;
+        padding: 10px 20px; /* Adds some padding around the text */
+        display: inline-block; /* Makes the width adjust to the text content */
+        border-radius: 12px; /* Optional: Add rounded corners */
+    }
+
+    .projects-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .projects-container .project-card {
+        background-color: #4d4d4d;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        width: 280px;
+        padding: 25px;
+        text-align: left;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+
+        &:hover {
+            z-index: 10;
+            transform: scale(1.1); /* Makes the card larger on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
+            background-color: #202020; /* Background color changes */
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .project-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+
+            a {
+                text-decoration: none;
+                color: white;
+                padding: 12px 20px;
+                border-radius: 6px;
+                font-size: 14px;
+                font-weight: 500;
+                background-color: #28a745; /* Green for Live Demo */
+                z-index: 20;
+                position: relative;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                &:nth-child(1) {
+                    background-color: #28a745; /* Green for Live Demo */
+                }
+
+                &:nth-child(1):hover {
+                    background-color: #218838; /* Darker green on hover */
+                }
+
+                &:nth-child(2) {
+                    background-color: #007bff; /* Blue for GitHub */
+                }
+
+                &:nth-child(2):hover {
+                    background-color: #0056b3; /* Darker blue on hover */
+                }
+            }
+        }
+    }
+}
