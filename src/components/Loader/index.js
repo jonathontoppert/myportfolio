@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.scss'; // Ensure the path is correct to your SCSS file
+import './index.scss'; 
 
 const Loader = () => {
   return (
