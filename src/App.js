@@ -7,6 +7,8 @@ import About from './components/About';
 import Layout from './components/Layout';
 import Loader from './components/Loader';
 import Contact from './components/Contact';
+import ProjectsList from './components/ProjectsList';
+
 function App() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
@@ -44,6 +46,10 @@ function App() {
               <Route path="/layout" element={<Layout />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
+
+            <div className="App">
+              <ProjectsList />
+            </div>
           </div>
         </>
       )}
