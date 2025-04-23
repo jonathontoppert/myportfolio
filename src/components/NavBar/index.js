@@ -36,7 +36,7 @@ const NavBar = () => (
             </a>
             <a target='_blank' 
             rel='noreferrer' 
-            href='https://www.linkedin.com/in/jonathon-toppert-129347216/'>
+            href='https://www.youtube.com/@ToppProjects'>
                 <FontAwesomeIcon icon={faYoutube} color="#ffffff" />
             </a>
         </li>

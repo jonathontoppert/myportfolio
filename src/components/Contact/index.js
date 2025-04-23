@@ -15,18 +15,31 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setTimeout(() => {
-      setIsSubmitted(true); 
-      setSuccessMessage('Thank you! Your message has been received. I will get back to you as soon as possible.');
-      setFormData({ name: '', email: '', message: '' });
-
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setSuccessMessage(''); 
-      }, 5000);
-    }, 1000); 
+  
+    
+    fetch('http://localhost:5000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setIsSubmitted(true);
+        setSuccessMessage('Thank you! Your message has been received. I will get back to you as soon as possible.');
+        setFormData({ name: '', email: '', message: '' });
+  
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setSuccessMessage('');
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
+  
 
   return (
     <div className="contact-page">
