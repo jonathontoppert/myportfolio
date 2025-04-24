@@ -1,34 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import fetchBackendData from '../api/api.js';
 
-const ProjectsList  = () => {
-  const [data, setData] = useState('');
-  const [error, setError] = useState('');
-
-
-useEffect(() => {
-    fetch('/api/projects') 
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log(data); 
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-      });
+const ProjectsList = () => {
+  useEffect(() => {
+    fetchBackendData();
   }, []);
-  
 
   return (
     <div>
       <h1>Backend Response</h1>
-      {error ? <p>{error}</p> : <p>{data}</p>}
+      <p>Check console for output.</p>
     </div>
   );
 };
 
-export default ProjectsList ;
+export default ProjectsList;
