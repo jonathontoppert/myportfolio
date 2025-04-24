@@ -15,17 +15,65 @@
         display: inline-block; 
         border-radius: 12px; 
     }
-
     .projects-container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: nowrap; 
+        overflow-x: auto;  
         gap: 30px;
-        padding: 0 20px;
-    }
+        padding: 20px;
+      
+  
+        scrollbar-width: thin;
+        scrollbar-color: #444 #222;
+      
+        &::-webkit-scrollbar {
+          height: 8px;
+        }
+      
+        &::-webkit-scrollbar-track {
+          background: #222;
+        }
+      
+        &::-webkit-scrollbar-thumb {
+          background: #444;
+          border-radius: 4px;
+        }
+      }
+      
+    .project-image {
+        width: 100%;
+        height: 200px; 
+        object-fit: cover; 
+        border-radius: 8px;
+      }
+      .project-content.blurred {
+        filter: blur(4px) grayscale(100%);
+        pointer-events: none;
+        position: relative;
+      
+        &::after {
+          content: 'Coming Soon';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+          font-size: 18px;
+          font-weight: bold;
+          background-color: rgba(0, 0, 0, 0.7);
+          padding: 12px 24px;
+          border-radius: 8px;
+          z-index: 10;
+          text-align: center;
+          animation: fadeIn 0.5s ease-in-out;
+        }
+      }
+      
 
+    
     .projects-container .project-card {
         background-color: #4d4d4d;
+        height: 350px;
         border-radius: 12px;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
         width: 280px;
