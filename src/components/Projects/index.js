@@ -5,8 +5,16 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch('/api/projects')
-      .then((response) => response.json())
+    const apiUrl = `${process.env.REACT_APP_API_URL}/api/projects`;
+    console.log("Fetching projects from:", apiUrl); // ✅ helpful log
+  
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
         setProjects(data);
       })
@@ -14,7 +22,7 @@ const Projects = () => {
         console.error('Error fetching projects:', error);
       });
   }, []);
-
+  
   return (
     <div className="projects-section">
       <h2>Projects</h2>
